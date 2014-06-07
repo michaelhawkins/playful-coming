@@ -1,4 +1,4 @@
-This is the boilerplate template I use for my Play framework projects.
+This is the template I use for my Play framework projects.
 
 It is setup to use:
 
