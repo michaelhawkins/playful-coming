@@ -6,3 +6,4 @@ It is setup to use:
 -- SLICK 2.0.2  
 -- PostgreSQL 9.1-901.jdbc4  
 -- Heroku  
+-- sbt 0.13.5  
