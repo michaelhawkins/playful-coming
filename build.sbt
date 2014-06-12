@@ -1,4 +1,4 @@
-name := "[TODO-APP-NAME-HERE]"
+name := "playful-coming"
 
 version := "1.0.0-SNAPSHOT"
 
@@ -15,7 +15,7 @@ libraryDependencies ++= {
   	jdbc,
   	"com.typesafe.play" %% "play" % playVersion,
   	"com.typesafe.play" %% "play-slick" % "0.6.0.1",
-    "postgresql" % "postgresql" % "9.3-1101.jdbc4",
+    "org.postgresql" % "postgresql" % "9.3-1101-jdbc41",
     "org.seleniumhq.selenium" % "selenium-java" % "2.42.2",
     "org.scala-lang" % "scala-swing" % "2.10.4",
     "org.scala-lang" % "scala-reflect" % "2.10.4",
