@@ -13,7 +13,8 @@ libraryDependencies ++= {
   val slickVersion = "2.0.2"
   Seq(
   	jdbc,
-  	"com.typesafe.play" %% "play" % playVersion,
+    anorm,
+    "com.typesafe.play" %% "play" % playVersion,
   	"com.typesafe.play" %% "play-slick" % "0.6.0.1",
     "org.postgresql" % "postgresql" % "9.3-1101-jdbc41",
     "org.seleniumhq.selenium" % "selenium-java" % "2.42.2",

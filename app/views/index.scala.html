@@ -1,7 +1,34 @@
-@(message: String)
+@(people: List[Person], personForm: Form[Person])
+
+@import helper._
 
 @main("Welcome to Play Templates") {
 
-    @play20.welcome(message)
+    <h1>@people.size task(s)</h1>
+
+    <ul>
+    @people.map { person =>
+        <li>
+            @person.firstName
+            @person.lastName
+            @person.email
+            @person.signupResult
+            @personForm(routes.Registration.deletePerson(person.id)) {
+                <input type="submit" value="Delete">
+            }
+        </li>
+    }
+    </ul>
+
+    <h2>Add a new person</h2>
+    @helper.form(routes.Registration.newPerson) {
+        @inputText(personForm("firstName"))
+        @inputText(personForm("lastName"))
+        @inputText(personForm("email"))
+        <input type="submit" value="Create">
+    }
+
+
+
 
 }
