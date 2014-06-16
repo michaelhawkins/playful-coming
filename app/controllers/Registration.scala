@@ -16,13 +16,7 @@ object Registration extends Controller {
   /** Add actions here */
 
   val personForm = Form(
-    mapping(
-    "id" -> longNumber(),
-    "firstName" -> nonEmptyText,
-    "lastName" -> nonEmptyText,
-    "email" -> nonEmptyText,
-    "signupResult" -> number
-    )(Person.apply)(Person.unapply)
+    "email" -> nonEmptyText
   )
 
 /*  def create = Action { implicit request =>
@@ -41,8 +35,8 @@ object Registration extends Controller {
   def newPerson = Action { implicit request =>
     personForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Person.all(), errors)),
-      personData => {
-        Person.create(personData.firstName, personData.lastName, personData.email, personData.signupResult)
+      email => {
+        Person.create(email)
         Redirect(routes.Registration.people)
       }
     )
