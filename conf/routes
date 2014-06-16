@@ -3,16 +3,17 @@
 # ~~~~
 
 # Home page
-GET         /                           controllers.Application.index
+GET         /                         controllers.Application.index
 
 # GET         /*file                    controllers.Assets.at(path="/public", file)
 
 # People
 # People
-GET         /people                     controllers.Registration.people
-POST        /people                     controllers.Registration.newPerson
-POST        /people/:id/delete          controllers.Registration.deletePerson(id: Long)
+GET         /signup                   controllers.Registration.newSignup
+POST        /signup                   controllers.Registration.createSignup
+POST        /signup/:id/delete        controllers.Registration.deleteSignup(id: Long)
+GET         /people                   controllers.Registration.people
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file               controllers.Assets.at(path="/public", file)
-GET         /webjars/*file              controllers.WebJarAssets.at(file)
+GET         /assets/*file             controllers.Assets.at(path="/public", file)
+GET         /webjars/*file            controllers.WebJarAssets.at(file)

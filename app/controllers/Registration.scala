@@ -7,16 +7,44 @@ import play.api.mvc._
 import play.api.db._
 import play.api.Play.current
 import com.sun.xml.internal.bind.v2.TODO
-import models.Person
+import models._
 import play.api.data._
 import play.api.data.Forms._
 
 object Registration extends Controller {
 
-  /** Add actions here */
+  /** Sign Up Form definition */
 
-  val personForm = Form(
-    "email" -> nonEmptyText
+  val personForm: Form[Person] = Form(
+    mapping(
+      "firstName" -> nonEmptyText,
+      "lastName" -> nonEmptyText,
+      "email" -> nonEmptyText(minLength = 6) //shortest domain is k.st add @ + 1 letter and the min email length is 6
+    )
+    {
+      (firstName, lastName, email) => Person(firstName, lastName, email)
+    }
+    {
+      //Unbinding: Create the mapping values from an existing Person value
+      person => Some(person.firstName, person.lastName, person.email)
+    }
+
+  )
+
+  val newPersonForm: Form[NewPerson] = Form(
+    mapping(
+      "firstName" -> nonEmptyText,
+      "lastName" -> nonEmptyText,
+      "email" -> nonEmptyText(minLength = 6) //shortest domain is k.st add @ + 1 letter and the min email length is 6
+    )
+    {
+      (firstName, lastName, email) => Person(firstName, lastName, email)
+    }
+    {
+      //Unbinding: Create the mapping values from an existing Person value
+      newPerson => Some(person.firstName, person.lastName, person.email)
+    }
+
   )
 
 /*  def create = Action { implicit request =>
@@ -32,17 +60,21 @@ object Registration extends Controller {
     Ok(views.html.index(Person.all(), personForm))
   }
 
-  def newPerson = Action { implicit request =>
+  def newSignup = Action {
+    Ok(views.html.newSignup(personForm))
+  }
+
+  def createSignup = Action { implicit request =>
     personForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.index(Person.all(), errors)),
-      email => {
-        Person.create(email)
+      errors => BadRequest(views.html.newSignup(errors)),
+      person => {
+        Person.create(person.firstName, person.lastName, person.email)
         Redirect(routes.Registration.people)
       }
     )
   }
 
-  def deletePerson(id: Long) = Action {
+  def deleteSignup(id: Long) = Action {
     Person.delete(id)
     Redirect(routes.Registration.people)
   }

@@ -1,0 +1,34 @@
+@(personForm: Form[Person])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Welcome to Playful Coming Soon example app") {
+    @helper.form(action = routes.Registration.newSignup) {
+        <fieldset>
+            <legend>Registration information</legend>
+
+            @inputText(
+                personForm("firstName"), '_label -> "First Name", 'help -> "Please enter your first name",
+                    'error -> personForm.globalError
+            )
+
+            @inputText(
+                personForm("lastName"), '_label -> "Last Name", 'help -> "Please enter your last name",
+                    'error -> personForm.globalError
+            )
+
+            @inputText(
+                personForm("email"), '_label -> "Email", 'help -> "Please enter a valid email",
+                    'error -> personForm.globalError
+            )
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn btn-primary" value="Register">
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+    }
+
+}

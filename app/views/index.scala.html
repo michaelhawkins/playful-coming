@@ -1,4 +1,4 @@
-@(people: List[Person], personForm: Form[String])
+@(people: List[Person], personForm: Form[Person])
 
 @import helper._
 
@@ -13,7 +13,7 @@
             @people.map { person =>
                 <li class>
                     @person.email
-                    @helper.form(routes.Registration.deletePerson(person.id)) {
+                    @helper.form(routes.Registration.deleteSignup(person.id)) {
                         <input type="submit" value="Delete" class="btn btn-primary">
                     }
                 </li>
@@ -21,7 +21,7 @@
             </ul>
 
             <h3>Add a new person</h3>
-            @helper.form(routes.Registration.newPerson) {
+            @helper.form(routes.Registration.newSignup) {
                 @inputText(personForm("email"))
 
                 <input type="submit" value="Create" class="btn btn-primary">
