@@ -1,0 +1,32 @@
+@(people: List[Person], personForm: Form[Person])
+
+@import helper._
+
+@main("Welcome to Playful Coming example app") {
+
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <h3>@people.size people</h3>
+
+            <ul class="list-unstyled">
+            @people.map { person =>
+                <li class>
+                    @person.email
+                    @helper.form(routes.Registration.deleteSignup(person.id)) {
+                        <input type="submit" value="Delete" class="btn btn-primary">
+                    }
+                </li>
+            }
+            </ul>
+
+            <h3>Add a new person</h3>
+            @helper.form(routes.Registration.newSignup) {
+                @inputText(personForm("email"))
+
+                <input type="submit" value="Create" class="btn btn-primary">
+            }
+        </div>
+        <div></div>
+    </div>
+}

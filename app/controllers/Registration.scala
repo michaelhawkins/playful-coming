@@ -38,11 +38,11 @@ object Registration extends Controller {
   }*/
 
   def index = Action {
-    Redirect(routes.Registration.people)
+    Redirect(routes.Application.index())
   }
 
   def people = Action {
-    Ok(views.html.index(Person.all(), personForm))
+    Ok(views.html.listSignup(Person.all(), personForm))
   }
 
   def newSignup = Action {
@@ -53,8 +53,9 @@ object Registration extends Controller {
     newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.newSignup(errors)),
       person => {
-        val x = NewPerson.create(person.firstName, person.lastName, person.email)
-        Ok(views.html.signupSuccess(x))
+        val newPerson = NewPerson.create(person.firstName, person.lastName, person.email)
+        Ok(views.html.signupSuccess(newPerson))
+//        Redirect(routes.Registration.signupSuccess(newPerson))
       }
     )
   }
@@ -63,5 +64,10 @@ object Registration extends Controller {
     Person.delete(id)
     Redirect(routes.Registration.people)
   }
+
+  /*def signupSuccess = Action {
+//    Ok(views.html.signupSuccess(person))
+    Ok()
+  }*/
 
 }
