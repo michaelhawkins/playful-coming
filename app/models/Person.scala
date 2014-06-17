@@ -25,7 +25,7 @@ object NewPerson {
   def create(firstName: String, lastName: String, email: String) {
     DB.withConnection { implicit c =>
       SQL("INSERT INTO person(firstname, lastname, email) VALUES({firstname}, {lastname}, {email})").on(
-        'firstname -> firstName, 'lastName -> lastName, 'email -> email).executeUpdate()
+        'firstname -> firstName, 'lastname -> lastName, 'email -> email).executeUpdate()
     }
   }
 

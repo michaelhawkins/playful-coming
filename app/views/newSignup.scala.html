@@ -1,34 +1,38 @@
-@(personForm: Form[Person])
+@(newPersonForm: Form[NewPerson])
 
 @import helper._
-@import helper.twitterBootstrap._
 
 @main("Welcome to Playful Coming Soon example app") {
-    @helper.form(action = routes.Registration.newSignup) {
-        <fieldset>
-            <legend>Registration information</legend>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            @helper.form(action = routes.Registration.createSignup) {
+                <fieldset>
+                    <legend>Registration information</legend>
 
-            @inputText(
-                personForm("firstName"), '_label -> "First Name", 'help -> "Please enter your first name",
-                    'error -> personForm.globalError
-            )
+                    @inputText(
+                        newPersonForm("firstName"), '_label -> "First Name", 'help -> "Please enter your first name",
+                            'error -> newPersonForm.globalError
+                    )
 
-            @inputText(
-                personForm("lastName"), '_label -> "Last Name", 'help -> "Please enter your last name",
-                    'error -> personForm.globalError
-            )
+                    @inputText(
+                        newPersonForm("lastName"), '_label -> "Last Name", 'help -> "Please enter your last name",
+                            'error -> newPersonForm.globalError
+                    )
 
-            @inputText(
-                personForm("email"), '_label -> "Email", 'help -> "Please enter a valid email",
-                    'error -> personForm.globalError
-            )
+                    @inputText(
+                        newPersonForm("email"), '_label -> "Email", 'help -> "Please enter a valid email",
+                            'error -> newPersonForm.globalError
+                    )
 
-        </fieldset>
+                </fieldset>
 
-        <div class="actions">
-            <input type="submit" class="btn btn-primary" value="Register">
-            <a href="@routes.Application.index" class="btn">Cancel</a>
+                <div class="actions">
+                    <input type="submit" class="btn btn-primary" value="Register">
+                    <a href="@routes.Application.index" class="btn">Cancel</a>
+                </div>
+            }
         </div>
-    }
-
+        <div></div>
+    </div>
 }

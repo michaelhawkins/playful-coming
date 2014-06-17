@@ -17,18 +17,11 @@ object Registration extends Controller {
 
   val personForm: Form[Person] = Form(
     mapping(
+      "id" -> longNumber,
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
       "email" -> nonEmptyText(minLength = 6) //shortest domain is k.st add @ + 1 letter and the min email length is 6
-    )
-    {
-      (firstName, lastName, email) => Person(firstName, lastName, email)
-    }
-    {
-      //Unbinding: Create the mapping values from an existing Person value
-      person => Some(person.firstName, person.lastName, person.email)
-    }
-
+    )(Person.apply)(Person.unapply)
   )
 
   val newPersonForm: Form[NewPerson] = Form(
@@ -36,15 +29,7 @@ object Registration extends Controller {
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
       "email" -> nonEmptyText(minLength = 6) //shortest domain is k.st add @ + 1 letter and the min email length is 6
-    )
-    {
-      (firstName, lastName, email) => Person(firstName, lastName, email)
-    }
-    {
-      //Unbinding: Create the mapping values from an existing Person value
-      newPerson => Some(person.firstName, person.lastName, person.email)
-    }
-
+    )(NewPerson.apply)(NewPerson.unapply)
   )
 
 /*  def create = Action { implicit request =>
@@ -61,14 +46,14 @@ object Registration extends Controller {
   }
 
   def newSignup = Action {
-    Ok(views.html.newSignup(personForm))
+    Ok(views.html.newSignup(newPersonForm))
   }
 
   def createSignup = Action { implicit request =>
-    personForm.bindFromRequest.fold(
+    newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.newSignup(errors)),
       person => {
-        Person.create(person.firstName, person.lastName, person.email)
+        NewPerson.create(person.firstName, person.lastName, person.email)
         Redirect(routes.Registration.people)
       }
     )
