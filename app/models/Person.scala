@@ -22,16 +22,27 @@ object NewPerson {
     }
   }
 
-  def create(firstName: String, lastName: String, email: String) {
+  def create(firstName: String, lastName: String, email: String): Person = {
     DB.withConnection { implicit c =>
-      SQL("INSERT INTO person(firstname, lastname, email) VALUES({firstname}, {lastname}, {email})").on(
-        'firstname -> firstName, 'lastname -> lastName, 'email -> email).executeInsert()
+      val id: Long = SQL("INSERT INTO person(firstname, lastname, email) VALUES({firstname}, {lastname}, {email})").on(
+        'firstname -> firstName, 'lastname -> lastName, 'email -> email).executeInsert(scalar[Long] single)
+
+      return Person.find(id)
     }
   }
 
 }
 
 object Person {
+
+  val parser = {
+    get[Long]("id") ~
+      get[String]("firstname") ~
+      get[String]("lastname") ~
+      get[String]("email") map {
+      case id ~ firstname ~ lastname ~ email => Person(id, firstname, lastname, email)
+    }
+  }
 
   val person = {
     get[Long]("id") ~ get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") map {
@@ -46,6 +57,12 @@ object Person {
   def delete(id: Long) {
     DB.withConnection{ implicit c =>
       SQL("DELETE FROM person WHERE id = {id}").on('id -> id).executeUpdate()
+    }
+  }
+
+  def find(id: Long): Person = {
+    DB.withConnection{ implicit c =>
+      SQL("SELECT id, firstname, lastname, email FROM person WHERE id = {id}").on('id -> id).using(Person.parser).single()
     }
   }
 }

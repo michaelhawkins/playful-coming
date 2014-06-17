@@ -53,8 +53,8 @@ object Registration extends Controller {
     newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.newSignup(errors)),
       person => {
-        NewPerson.create(person.firstName, person.lastName, person.email)
-        Redirect(routes.Registration.people)
+        val x = NewPerson.create(person.firstName, person.lastName, person.email)
+        Ok(views.html.signupSuccess(x))
       }
     )
   }
