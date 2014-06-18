@@ -34,14 +34,6 @@ object Registration extends Controller {
     )(NewPerson.apply)(NewPerson.unapply)
   )
 
-/*  def create = Action { implicit request =>
-
-    Ok(views.html.linkResult(request.user))
-  }*/
-
-  def index = Action {
-    Redirect(routes.Application.index())
-  }
 
   def people = Action {
     Ok(views.html.listSignup(Person.all(), personForm))
