@@ -1,6 +1,6 @@
-# This is the Playful Coming Soon sample app. It uses the following tech
+### This is the Playful Coming Soon sample app. It uses the following tech
 
-## The stack:
+#### The stack:
 
 - Play Framework 2.3.0  
 - Scala 2.10.4  
@@ -11,7 +11,7 @@
 - sbt 0.13.5   
 - webjars (for Bootstrap and JQuery)  
 
-## To date it demonstrates the following aspects of Play:  
+#### To date it demonstrates the following aspects of Play:  
 - Evolutions:  
 	- Create and alter table  
 - The CR part of CRUD using ScalaAnorm  
@@ -19,7 +19,7 @@
 - Partials  
 - Scala templates / Play forms  
 
-## What does it need to do:  
+#### What does it need to do:  
 - Testing via spec2  
 - Authorization to allow an admin to view who has registered for launch information and to download a CSV  
 - Send an email to the interested party  
