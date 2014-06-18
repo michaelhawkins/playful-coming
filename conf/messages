@@ -1,2 +1,3 @@
-# App name
-playful-coming.appName = Playful Coming Soon
+global.appName = Playful Coming Soon
+
+signup.signupHere = Sign up here

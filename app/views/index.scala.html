@@ -2,13 +2,13 @@
 
 @import helper._
 
-@main("Welcome to Playful Coming Soon example app") {
+@main("Welcome to " + Messages("global.appName") + "example app") {
 
     <div class="row">
         "Would you like to join us?"
     </div>
 
-    <a href="/signup">Click here</a>
+    <a href="/signup">@Messages("signup.signupHere")</a>
 
 
 }
