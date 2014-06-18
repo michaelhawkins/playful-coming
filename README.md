@@ -1,4 +1,4 @@
-### This is the Playful Coming Soon sample app. It uses the following tech
+### This is the Playful Coming Soon sample app.
 
 #### The stack:
 
