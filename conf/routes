@@ -13,6 +13,7 @@ GET         /signup                   controllers.Registration.newSignup
 POST        /signup                   controllers.Registration.createSignup
 POST        /signup/:id/delete        controllers.Registration.deleteSignup(id: Long)
 GET         /people                   controllers.Registration.people
+GET         /person/:id               controllers.Registration.show(id: Long)
 # POST        /successSignup              controllers.Registration.signupSuccess
 
 # Map static resources from the /public folder to the /assets URL path

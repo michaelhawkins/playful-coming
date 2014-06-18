@@ -11,21 +11,22 @@ trait PersonT {
   def lastName: String
 }
 
-case class NewPerson(firstName: String, lastName: String, email: String)
-case class Person(id: Long, firstName: String, lastName: String, email: String)
+case class NewPerson(firstName: String, lastName: String, email: String, zipCode: String)
+case class Person(id: Long, firstName: String, lastName: String, email: String, zipCode:String)
 
 object NewPerson {
 
   val newPerson = {
-    get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") map {
-      case firstName~lastName~email => NewPerson(firstName, lastName, email)
+    get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") ~ get[String]("zipCode") map {
+      case firstName~lastName~email~zipCode => NewPerson(firstName, lastName, email, zipCode)
     }
   }
 
-  def create(firstName: String, lastName: String, email: String): Person = {
+  def create(firstName: String, lastName: String, email: String, zipCode: String): Person = {
     DB.withConnection { implicit c =>
-      val id: Long = SQL("INSERT INTO person(firstname, lastname, email) VALUES({firstname}, {lastname}, {email})").on(
-        'firstname -> firstName, 'lastname -> lastName, 'email -> email).executeInsert(scalar[Long] single)
+      val id: Long = SQL("INSERT INTO person(firstname, lastname, email, zipcode) VALUES({firstname}, {lastname}, " +
+        "{email}, {zipcode})").on('firstname -> firstName, 'lastname -> lastName, 'email -> email, 'zipcode -> zipCode)
+        .executeInsert(scalar[Long] single)
 
       return Person.find(id)
     }
@@ -39,14 +40,15 @@ object Person {
     get[Long]("id") ~
       get[String]("firstname") ~
       get[String]("lastname") ~
-      get[String]("email") map {
-      case id ~ firstname ~ lastname ~ email => Person(id, firstname, lastname, email)
+      get[String]("email") ~
+      get[String]("zipcode") map {
+      case id ~ firstname ~ lastname ~ email ~ zipcode => Person(id, firstname, lastname, email, zipcode)
     }
   }
 
   val person = {
-    get[Long]("id") ~ get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") map {
-      case id~firstName~lastName~email => Person(id, firstName, lastName, email)
+    get[Long]("id") ~ get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") ~ get[String]("zipcode") map {
+      case id~firstName~lastName~email~zipCode => Person(id, firstName, lastName, email, zipCode)
     }
   }
 
@@ -62,7 +64,7 @@ object Person {
 
   def find(id: Long): Person = {
     DB.withConnection{ implicit c =>
-      SQL("SELECT id, firstname, lastname, email FROM person WHERE id = {id}").on('id -> id).using(Person.parser).single()
+      SQL("SELECT id, firstname, lastname, email, zipcode FROM person WHERE id = {id}").on('id -> id).using(Person.parser).single()
     }
   }
 }

@@ -20,7 +20,8 @@ object Registration extends Controller {
       "id" -> longNumber,
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
-      "email" -> nonEmptyText(minLength = 6) //shortest domain is k.st add @ + 1 letter and the min email length is 6
+      "email" -> nonEmptyText(minLength = 6), //shortest domain is k.st add @ + 1 letter and the min email length is 6
+      "zipCode" -> nonEmptyText(minLength = 5, maxLength = 5)
     )(Person.apply)(Person.unapply)
   )
 
@@ -28,7 +29,8 @@ object Registration extends Controller {
     mapping(
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
-      "email" -> nonEmptyText(minLength = 6) //shortest domain is k.st add @ + 1 letter and the min email length is 6
+      "email" -> nonEmptyText(minLength = 6), //shortest domain is k.st add @ + 1 letter and the min email length is 6
+      "zipCode" -> nonEmptyText(minLength = 5, maxLength = 5)
     )(NewPerson.apply)(NewPerson.unapply)
   )
 
@@ -53,8 +55,9 @@ object Registration extends Controller {
     newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.newSignup(errors)),
       person => {
-        val newPerson = NewPerson.create(person.firstName, person.lastName, person.email)
-        Ok(views.html.signupSuccess(newPerson))
+        //Ok(person.firstName)
+        val newPerson = NewPerson.create(person.firstName, person.lastName, person.email, person.zipCode)
+        Ok(views.html.signupSuccess(newPerson.id, newPerson.firstName, newPerson.lastName, newPerson.email, newPerson.zipCode))
 //        Redirect(routes.Registration.signupSuccess(newPerson))
       }
     )
@@ -63,6 +66,11 @@ object Registration extends Controller {
   def deleteSignup(id: Long) = Action {
     Person.delete(id)
     Redirect(routes.Registration.people)
+  }
+
+  def show(id: Long) = Action {
+    val x =  Person.find(id)
+    Ok(views.html.signupSuccess(x.id, x.firstName, x.lastName, x.email, x.zipCode))
   }
 
   /*def signupSuccess = Action {

@@ -20,18 +20,23 @@
                         <h4>@Messages("signup.hereaboutlaunch")</h4>
 
                         @inputText(
-                            newPersonForm("firstName"), '_label -> Messages("person.firstname"), 'help -> Messages("person.enterfirstname"),
-                                'error -> newPersonForm.globalError
+                            newPersonForm("firstName"), '_label -> Messages("person.firstname"),
+                                'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError
                         )
 
                         @inputText(
-                            newPersonForm("lastName"), '_label -> Messages("person.lastname"), 'help -> Messages("person.enterlastname"),
-                                'error -> newPersonForm.globalError
+                            newPersonForm("lastName"), '_label -> Messages("person.lastname"),
+                            'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError
                         )
 
                         @inputText(
-                            newPersonForm("email"), '_label -> Messages("email.email"), 'help -> Messages("email.enteremail"),
-                                'error -> newPersonForm.globalError
+                            newPersonForm("email"), '_label -> Messages("email.email"),
+                                'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError
+                        )
+
+                        @inputText(
+                            newPersonForm("zipCode"), '_label -> Messages("address.zipcode"),
+                                'help -> Messages("address.enterzipcode"), 'error -> newPersonForm.globalError
                         )
 
                     </fieldset>

@@ -1,21 +1,14 @@
-@(person: Person)
+@(id: Long, firstName: String, lastName: String, email: String, zipCode: String)
+
 
 @import helper._
 
-@main("Welcome to Playful Coming Soon example app") {
+@main(Messages("global.welcomeTo") + " " + Messages("global.appName") + " " + Messages("global.exampleapp")) {
 
-    <h2>Your account with the following attributes has been created:</h2>
+    <div style="padding:50px">
 
-    <h6>Name</h6>
+        <p>@firstName, Thank you for signing up to hear more about @Messages("global.appName"). We will send you an email at @email as we hit major milestones on our way to our launch.</p>
 
-    <p>
-        @person.lastName + ", " + @person.firstName
-    </p>
-
-    <h6>Email</h6>
-
-    <p>
-        @person.email
-    </p>
+    </div>
 
 }
