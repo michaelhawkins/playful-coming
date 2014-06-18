@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET         /                         controllers.Application.index
+GET         /                         controllers.Registration.newSignup
 
 # GET         /*file                    controllers.Assets.at(path="/public", file)
 
