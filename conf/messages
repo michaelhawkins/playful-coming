@@ -2,6 +2,11 @@ global.appName = Playful Coming Soon
 global.welcomeTo = Welcome to
 global.exampleapp = Example App
 global.cancel = Cancel
+global.about = About
+global.contact = Contact
+global.how = How it works
+global.terms = Terms
+global.privacy = Privacy Policy
 
 signup.signupHere = Sign up here
 signup.hereaboutlaunch = Be the first to hear about our launch
