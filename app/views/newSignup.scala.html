@@ -19,6 +19,10 @@
                     <fieldset>
                         <h4>@Messages("signup.hereaboutlaunch")</h4>
 
+                        <!-- Note: The first parameter of the form object must match the spelling you used in creating
+                            the form object. I spent 10 minutes on this. Trying to save you the same 10 to use
+                            elsewhere. :) -->
+
                         @inputText(
                             newPersonForm("firstName"), '_label -> Messages("person.firstname"),
                                 'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError
@@ -38,6 +42,7 @@
                             newPersonForm("zipCode"), '_label -> Messages("address.zipcode"),
                                 'help -> Messages("address.enterzipcode"), 'error -> newPersonForm.globalError
                         )
+
 
                     </fieldset>
 
