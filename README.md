@@ -20,7 +20,7 @@
 - Scala templates / Play forms  
 
 #### What does it need to do:  
-- Testing via spec2  
+- Testing via specs2
 - Authorization to allow an admin to view who has registered for launch information and to download a CSV  
 - Send an email to the interested party  
 - Check for duplicate emails and update the person model rather than creating new (maybe?)  
