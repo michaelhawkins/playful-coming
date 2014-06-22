@@ -7,7 +7,24 @@ GET         /                         controllers.Registration.newSignup
 
 # GET         /*file                    controllers.Assets.at(path="/public", file)
 
-# People
+#Marketing Pages
+#show about page
+GET         /about                    controllers.Marketing.about
+#show the team
+GET         /team                     controllers.Marketing.team
+#show about page
+GET         /how                      controllers.Marketing.how
+
+# show list of contacts
+GET         /index                    controllers.Marketing.contactList
+#generate a form to send message
+GET         /contact                  controllers.Marketing.newContact
+#create message to team
+POST        /contact                  controllers.Marketing.createContact
+
+
+
+
 # People
 GET         /signup                   controllers.Registration.newSignup
 POST        /signup                   controllers.Registration.createSignup
@@ -15,6 +32,8 @@ POST        /signup/:id/delete        controllers.Registration.deleteSignup(id: 
 GET         /people                   controllers.Registration.people
 GET         /person/:id               controllers.Registration.show(id: Long)
 # POST        /successSignup              controllers.Registration.signupSuccess
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file             controllers.Assets.at(path="/public", file)

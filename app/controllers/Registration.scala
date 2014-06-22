@@ -36,7 +36,8 @@ object Registration extends Controller {
 
 
   def people = Action {
-    Ok(views.html.listSignup(Person.all(), personForm))
+//    Ok(views.html.listSignup(Person.all(), personForm))
+    Ok("List of people who have signed up for admins")
   }
 
   def newSignup = Action {

@@ -1,0 +1,13 @@
+@(firstName: String, lastName: String)
+
+@import helper._
+
+@main(Messages("global.welcomeTo") + " " + Messages("global.appName") + " " + Messages("global.exampleapp")) {
+
+    <div style="padding:50px">
+
+        <p>@firstName, Thank you for contacting us. One of our team members will contact you shortly.</p>
+
+    </div>
+
+}
