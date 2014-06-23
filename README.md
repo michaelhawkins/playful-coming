@@ -1,4 +1,4 @@
-### This is the Playful Coming Soon sample app.
+### This is the Playful Prelaunch sample app.
 
 #### The stack:
 

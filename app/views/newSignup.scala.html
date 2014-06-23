@@ -25,22 +25,25 @@
 
                         @inputText(
                             newPersonForm("firstName"), '_label -> Messages("person.firstname"),
-                                'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError
+                                'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError,
+                                'showConstraints ->
                         )
 
                         @inputText(
                             newPersonForm("lastName"), '_label -> Messages("person.lastname"),
-                            'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError
+                                'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError,
+                                'showConstraints -> false
                         )
-
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
-                                'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError
+                                'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError,
+                                'showConstraints -> false
                         )
 
                         @inputText(
                             newPersonForm("zipCode"), '_label -> Messages("address.zipcode"),
-                                'help -> Messages("address.enterzipcode"), 'error -> newPersonForm.globalError
+                                'help -> Messages("address.enterzipcode"), 'error -> newPersonForm.globalError,
+                                'showConstraints -> false
                         )
 
 
