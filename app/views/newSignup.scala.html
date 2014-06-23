@@ -22,17 +22,15 @@
                         <!-- Note: The first parameter of the form object must match the spelling you used in creating
                             the form object. I spent 10 minutes on this. Trying to save you the same 10 to use
                             elsewhere. :) -->
+                            @inputText(
+                                newPersonForm("firstName"), '_label -> Messages("person.firstname"),
+                                    'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError
+                            )
 
-                        @inputText(
-                            newPersonForm("firstName"), '_label -> Messages("person.firstname"),
-                                'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError
-                        )
-
-                        @inputText(
-                            newPersonForm("lastName"), '_label -> Messages("person.lastname"),
-                            'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError
-                        )
-
+                            @inputText(
+                                newPersonForm("lastName"), '_label -> Messages("person.lastname"),
+                                'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError
+                            )
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
                                 'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError
