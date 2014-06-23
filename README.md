@@ -17,11 +17,11 @@
 - The CR part of CRUD using ScalaAnorm  
 - Scala/Play localization  
 - Partials  
-- Scala templates / Play forms  
+- Scala templates / Play forms
+- Testing via specs2 including static pages, dynamic pages and routes
 
 #### What does it need to do:  
-- Testing via specs2
-- Authorization to allow an admin to view who has registered for launch information and to download a CSV  
+- Authorization to allow an admin to view who has registered for launch information and to download a CSV
 - Send an email to the interested party  
 - Check for duplicate emails and update the person model rather than creating new (maybe?)  
 
