@@ -19,8 +19,15 @@ person.name = Name
 person.enterfirstname = Enter first name
 person.enterlastname = Enter last name
 
+contact.contactus = Contact us
+contact.sendmessage = Send message
+contact.comments = Comments
+
 email.email = Email
 email.enteremail = Enter email
 
 address.zipcode = Zip Code
 address.enterzipcode = Enter zip code
+
+phone.phone = Phone number
+phone.enterphone = Enter phone number

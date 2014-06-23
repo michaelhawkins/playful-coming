@@ -4,7 +4,49 @@
 
 @main(Messages("global.welcomeTo") + " " + Messages("global.appName") + " " + Messages("global.exampleapp")) {
     <div class="container">
-        Contact us
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+                @helper.form(action = routes.Marketing.createContact) {
+                    <fieldset>
+                        <h4>@Messages("contact.contactus")</h4>
+
+                        @inputText(
+                            newContactForm("firstName"), '_label -> Messages("person.firstname"),
+                                'help -> Messages("person.enterfirstname"), 'error -> newContactForm.globalError
+                        )
+
+                        @inputText(
+                            newContactForm("lastName"), '_label -> Messages("person.lastname"),
+                                'help -> Messages("person.enterlastname"), 'error -> newContactForm.globalError
+                        )
+
+                        @inputText(
+                            newContactForm("phone"), '_label -> Messages("phone.phone"),
+                                'help -> Messages("phone.enterphone"), 'error -> newContactForm.globalError
+                        )
+
+                        @inputText(
+                            newContactForm("email"), '_label -> Messages("email.email"),
+                                'help -> Messages("email.enteremail"), 'error -> newContactForm.globalError
+                        )
+
+                        @inputText(
+                            newContactForm("comments"), '_label -> Messages("contact.comments"),
+                                'help -> Messages("contact.entercontact"), 'error -> newContactForm.globalError
+                        )
+
+                    </fieldset>
+
+                    <div class="actions">
+                        <input type="submit" class="btn btn-primary" value=@Messages("contact.sendmessage")>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+
+
 
 
 

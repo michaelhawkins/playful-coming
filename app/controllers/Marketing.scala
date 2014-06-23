@@ -16,7 +16,7 @@ object Marketing extends Controller {
       "lastName" -> nonEmptyText,
       "phone" -> nonEmptyText,
       "email" -> nonEmptyText(minLength = 6), //shortest domain is k.st add @ + 1 letter and the min email length is 6
-      "comments" -> nonEmptyText(minLength = 5, maxLength = 5)
+      "comments" -> nonEmptyText(maxLength = 512)
     )(NewContact.apply)(NewContact.unapply)
   )
   /** Add actions here */
