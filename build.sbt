@@ -1,4 +1,4 @@
-name := "playful-coming"
+name := "playful-prelaunch"
 
 version := "1.0.0-SNAPSHOT"
 
