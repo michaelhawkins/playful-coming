@@ -20,6 +20,7 @@ class IntegrationSpec extends Specification {
       browser.goTo("http://localhost:" + port)
 
       browser.pageSource must contain("Be the first to hear about our launch")
+
     }
 
     "take you to signupSuccess page" in new WithBrowser {
@@ -38,24 +39,6 @@ class IntegrationSpec extends Specification {
 
     }
 
-    "take you to contactSuccess page" in new WithBrowser {
-      browser.goTo("http://localhost:" + port + "/contact")
-      //browser.pageSource must contain("Contact us")
 
-      val phone: String = "216-555-1234"
-      val email: String = "christine@playfultutorials.org"
-
-      browser.$("#firstName").text("Christine")
-      browser.$("#lastName").text("Smith")
-      browser.$("#phone").text(phone)
-      browser.$("#email").text(email)
-      browser.$("#comments").text("Your web design needs work")
-      browser.$(".btn-primary").click()
-
-      browser.pageSource must contain("Thank you for contacting us. One of our team members will contact you shortly")
-
-      browser.pageSource must contain("The " + Messages("global.appName") + " team")
-
-    }
   }
 }
