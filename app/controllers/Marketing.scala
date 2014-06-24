@@ -6,6 +6,9 @@ import com.sun.xml.internal.bind.v2.TODO
 import models._
 import play.api.data._
 import play.api.data.Forms._
+import play.api.Play.current
+import play.api.libs.ws._
+import scala.concurrent.Future
 
 object Marketing extends Controller {
 
@@ -37,6 +40,7 @@ object Marketing extends Controller {
         val newContact = NewContact.create(contact.firstName, contact.lastName, contact.email, contact.phone, contact.comments)
         Ok(views.html.marketing.contactSuccess(newContact.firstName, newContact.lastName))
       }
+
     )
   }
 
