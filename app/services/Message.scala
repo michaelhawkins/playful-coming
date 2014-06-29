@@ -57,4 +57,17 @@ object Message {
       val futureResponse: Future[Response] = WS.url(apiUrl).post(jsonClass)
   }
 
+  /* The Mandrill template for above
+Hello <div mc:edit="firstname">
+  Firstname
+</div>
+
+Thank you so much for contacting Playful Prelaunch! An associate will contact you via email soon.
+
+Best regards,
+
+The Playful Prelaunch team
+
+  */
+
 }
