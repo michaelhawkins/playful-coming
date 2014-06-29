@@ -19,7 +19,7 @@
 - Partials  
 - Scala templates / Play forms
 - Testing via specs2 including static pages, dynamic pages and routes
-- Demonstrates emailing through Mandrill API including templates
+- Demonstrates emailing through Mandrill API both with and without templates
 
 #### What does it need to do:  
 - Authorization to allow an admin to view who has registered for launch information and to download a CSV
