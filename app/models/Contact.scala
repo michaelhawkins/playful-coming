@@ -42,7 +42,7 @@ object NewContact {
         "{phone}, {email}, {comments})").on('firstname -> firstName, 'lastname -> lastName, 'phone -> phone,
         'email -> email, 'comments -> comments)
         .executeInsert(scalar[Long] single)
-      Message.emailNewContact(firstName, lastName, email)
+        Message.emailNewContactwithTemplate(firstName, lastName, email) //Change to emailNewContactWithHtml if you don't want to use Mandrill
       return Contact.find(id)
     }
   }
