@@ -1,4 +1,7 @@
+global.companyName = Playful Prelaunch
 global.appName = Playful Prelaunch
+global.fromEmail = info@hawkinsunlimited.com
+global.replyToEmail = no-reply@hawkinsunlimited.com
 global.welcomeTo = Welcome to
 global.exampleapp = Example App
 global.cancel = Cancel
@@ -7,6 +10,9 @@ global.contact = Contact
 global.how = How it works
 global.terms = Terms
 global.privacy = Privacy Policy
+global.MandrillURL = https://mandrillapp.com/api/1.0/
+
+
 
 signup.signupHere = Sign up here
 signup.hereaboutlaunch = Be the first to hear about our launch

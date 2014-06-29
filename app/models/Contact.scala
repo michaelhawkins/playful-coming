@@ -3,7 +3,13 @@ package models
 import anorm._
 import anorm.SqlParser._
 import play.api.db._
+import play.api.Play
 import play.api.Play.current
+import play.api.libs.ws._
+import play.api.libs.json._
+import play.api.i18n._
+import scala.concurrent.Future
+import services.{Message}
 
 /**
  * Created by mike on 6/21/14.
@@ -36,7 +42,7 @@ object NewContact {
         "{phone}, {email}, {comments})").on('firstname -> firstName, 'lastname -> lastName, 'phone -> phone,
         'email -> email, 'comments -> comments)
         .executeInsert(scalar[Long] single)
-
+        Message.emailNewContactwithTemplate(firstName, lastName, email) //Change to emailNewContactWithHtml if you don't want to use Mandrill
       return Contact.find(id)
     }
   }

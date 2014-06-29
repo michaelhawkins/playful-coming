@@ -1,0 +1,86 @@
+{
+    "key": "m5SaG03NdIQIOnP85xErig",
+    "message": {
+        "html": "<p>Example HTML content</p>",
+        "text": "Example text content",
+        "subject": "example subject",
+        "from_email": “mike@hawkinsunlimited.com",
+        "from_name": "Example Name",
+        "to": [
+            {
+                "email": "onehawk01@gmail.com",
+                "name": "Recipient Name",
+                "type": "to"
+            }
+        ],
+        "headers": {
+            "Reply-To": “no-reply@hawkinsunlimited.com"
+        },
+        "important": false,
+        "track_opens": null,
+        "track_clicks": null,
+        "auto_text": null,
+        "auto_html": null,
+        "inline_css": null,
+        "url_strip_qs": null,
+        "preserve_recipients": null,
+        "view_content_link": null,
+        "bcc_address": "mhawkins@jumpstartb2b.com",
+        "tracking_domain": null,
+        "signing_domain": null,
+        "return_path_domain": null,
+        "merge": true,
+        "global_merge_vars": [
+            {
+                "name": "merge1",
+                "content": "merge1 content"
+            }
+        ],
+        "merge_vars": [
+            {
+                "rcpt": "onehawk01@gmail.com",
+                "vars": [
+                    {
+                        "name": "merge2",
+                        "content": "merge2 content"
+                    }
+                ]
+            }
+        ],
+        "tags": [
+            "password-resets"
+        ],
+        "subaccount": "customer-123",
+        "google_analytics_domains": [
+            "example.com"
+        ],
+        "google_analytics_campaign": “info@hawkinsunlimited.com",
+        "metadata": {
+            "website": "www.hawkinsunlimited.com"
+        },
+        "recipient_metadata": [
+            {
+                "rcpt": “onehawk01@gmail.com",
+                "values": {
+                    "user_id": 123456
+                }
+            }
+        ],
+        "attachments": [
+            {
+                "type": "text/plain",
+                "name": "myfile.txt",
+                "content": "ZXhhbXBsZSBmaWxl"
+            }
+        ],
+        "images": [
+            {
+                "type": "image/png",
+                "name": "IMAGECID",
+                "content": "ZXhhbXBsZSBmaWxl"
+            }
+        ]
+    },
+    "async": false,
+    "ip_pool": "Main Pool"
+}
