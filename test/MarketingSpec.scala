@@ -1,3 +1,6 @@
+/**
+Copyright 2014 Jump Start Consulting 201
+*/
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
@@ -7,9 +10,6 @@ import play.api.test.Helpers._
 import play.api.i18n.Messages
 
 
-/**
- * Created by mike on 6/22/14.
- */
 @RunWith(classOf[JUnitRunner])
 class MarketingSpec extends Specification {
 
