@@ -1,12 +1,16 @@
-@(title: String)
-
 @import helper._
 
-@main(Messages("global.welcomeTo") + " " + Messages("global.appName") + " " + Messages("global.exampleapp")) {
+@main(Messages("global.welcomeTo") + " " + Messages("global.appName") + " " +
+  Messages("global.exampleapp")) {
 
     <div class="container">
         <div class="row">
             <h1>About us</h1>
+            <p>This is the <a href="http://github.com/michaelhawkins/playful-prelaunch">
+              Playful Prelaunch</a> Play Framework sample application.
+              You can find a working version of this code on
+              <a href="http://playful-prelaunch.herokuapp.com" target="_blank">Heroku</a>.
+            </p>
         </div>
     </div>
 }
