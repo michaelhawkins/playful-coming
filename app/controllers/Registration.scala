@@ -41,16 +41,16 @@ object Registration extends Controller {
   }
 
   def newReg = Action {
-    Ok(views.html.newRegister(newPersonForm))
+    Ok(views.html.registration.newReg(newPersonForm))
   }
 
   def create = Action { implicit request =>
     newPersonForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.newReg(errors)),
+      errors => BadRequest(views.html.registration.newReg(errors)),
       person => {
         //Ok(person.firstName)
         val newPerson = NewPerson.create(person.firstName, person.lastName, person.email, person.zipCode)
-        Ok(views.html.signupSuccess(newPerson.id, newPerson.firstName, newPerson.lastName, newPerson.email, newPerson.zipCode))
+        Ok(views.html.registration.registerSuccess(newPerson.id, newPerson.firstName, newPerson.lastName, newPerson.email, newPerson.zipCode))
 //        Redirect(routes.Registration.signupSuccess(newPerson))
       }
     )
@@ -63,7 +63,7 @@ object Registration extends Controller {
 
   def show(id: Long) = Action {
     val x =  Person.find(id)
-    Ok(views.html.signupSuccess(x.id, x.firstName, x.lastName, x.email, x.zipCode))
+    Ok(views.html.registration.registerSuccess(x.id, x.firstName, x.lastName, x.email, x.zipCode))
   }
 
   /*def signupSuccess = Action {
