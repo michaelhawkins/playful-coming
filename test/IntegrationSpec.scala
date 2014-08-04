@@ -12,7 +12,7 @@ import play.api.i18n.Messages
  (or headless) browser
  */
 @RunWith(classOf[JUnitRunner])
-class IntegrationSpec extends Specification {
+  class IntegrationSpec extends Specification {
 
   "Application" should {
 

@@ -41,12 +41,12 @@ object Registration extends Controller {
   }
 
   def newReg = Action {
-    Ok(views.html.newSignup(newPersonForm))
+    Ok(views.html.newRegister(newPersonForm))
   }
 
   def create = Action { implicit request =>
     newPersonForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.newSignup(errors)),
+      errors => BadRequest(views.html.newReg(errors)),
       person => {
         //Ok(person.firstName)
         val newPerson = NewPerson.create(person.firstName, person.lastName, person.email, person.zipCode)
