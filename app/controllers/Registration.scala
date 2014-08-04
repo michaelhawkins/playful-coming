@@ -40,11 +40,11 @@ object Registration extends Controller {
     Ok("List of people who have signed up for admins")
   }
 
-  def newSignup = Action {
+  def newReg = Action {
     Ok(views.html.newSignup(newPersonForm))
   }
 
-  def createSignup = Action { implicit request =>
+  def create = Action { implicit request =>
     newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.newSignup(errors)),
       person => {
@@ -56,7 +56,7 @@ object Registration extends Controller {
     )
   }
 
-  def deleteSignup(id: Long) = Action {
+  def delete(id: Long) = Action {
     Person.delete(id)
     Redirect(routes.Registration.people)
   }

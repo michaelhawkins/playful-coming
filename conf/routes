@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET         /                         controllers.Registration.newSignup
+GET         /                         controllers.Registration.newReg
 
 # GET         /*file                    controllers.Assets.at(path="/public", file)
 
@@ -23,15 +23,12 @@ GET         /contact                  controllers.Marketing.newContact
 POST        /contact                  controllers.Marketing.createContact
 
 
-
-
-# People
-GET         /signup                   controllers.Registration.newSignup
-POST        /signup                   controllers.Registration.createSignup
-POST        /signup/:id/delete        controllers.Registration.deleteSignup(id: Long)
+# Registration
+GET         /register                   controllers.Registration.newReg
+POST        /register                   controllers.Registration.create
+POST        /register/:id/delete        controllers.Registration.delete(id: Long)
 GET         /people                   controllers.Registration.people
 GET         /person/:id               controllers.Registration.show(id: Long)
-# POST        /successSignup              controllers.Registration.signupSuccess
 
 
 
