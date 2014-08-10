@@ -29,12 +29,12 @@ case class Contact (id:Long, firstName: String, lastName: String, phone: String,
 
 object NewContact {
 
-  val newContact = {
+  /*val newContact = {
     get[String]("firstName") ~ get[String]("lastName") ~ get[String]("phone") ~ get[String]("email") ~
       get[String]("comments") map {
       case firstName~lastName~phone~email~comments => NewContact(firstName, lastName, phone, email, comments)
     }
-  }
+  }*/
 
   def create(firstName: String, lastName: String, phone: String, email: String, comments: String): Contact = {
     DB.withConnection { implicit c =>
