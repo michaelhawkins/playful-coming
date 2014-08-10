@@ -60,7 +60,7 @@ object Registration extends Controller {
 
   def delete(id: Long) = Action {
     Person.delete(id)
-    Redirect(routes.Registration.people)
+    Redirect(routes.Registration.index)
   }
 
   def show(id: Long) = Action {
