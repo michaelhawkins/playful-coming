@@ -13,7 +13,7 @@ object Message {
   //      "key" -> JsString("5t1Q3spLNNtrBesf3gxK7A"),*/
         "key" -> JsString(play.Play.application.configuration.getString("mandrillKey")),
         "message" -> JsObject(
-          Seq("html" -> JsString("<p>Test message from emailNewContact " + email + " after email</p>"), 
+          Seq("html" -> JsString("<p>Test message from emailNewContact " + email + " after email</p>"),
             "text" -> JsString("Test message from emailNewContact " + email + "after email"),
             "subject" -> JsString("Test subject from emailNewContact"),
             "from_email" -> JsString(Messages("global.fromEmail")),
@@ -29,7 +29,7 @@ object Message {
         "track_opens" -> JsBoolean(true)))))
 
       val apiUrl = "https://mandrillapp.com/api/1.0/messages/send.json"
-      val futureResponse: Future[Response] = WS.url(apiUrl).post(jsonClass)
+      val futureResponse: Future[WSResponse] = WS.url(apiUrl).post(jsonClass)
   }
 
   def emailNewContactwithTemplate(firstName: String, lastName: String, email: String) {
@@ -54,7 +54,7 @@ object Message {
         "track_opens" -> JsBoolean(true)))))
 
       val apiUrl = "https://mandrillapp.com/api/1.0/messages/send-template.json"
-      val futureResponse: Future[Response] = WS.url(apiUrl).post(jsonClass)
+      val futureResponse: Future[WSResponse] = WS.url(apiUrl).post(jsonClass)
   }
 
   /* The Mandrill template for above
