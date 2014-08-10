@@ -13,9 +13,9 @@
             @people.map { person =>
                 <li class>
                     @person.email
-                    <!-- @helper.form(routes.Registration.delete(person.id)) {
+                    @helper.form(routes.Registration.delete(person.id)) {
                         <input type="submit" value="Delete" class="btn btn-primary">
-                    }-->
+                    }
                 </li>
             }
             </ul>

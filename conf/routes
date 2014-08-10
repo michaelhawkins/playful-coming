@@ -24,11 +24,11 @@ POST        /contact                  controllers.Marketing.createContact
 
 
 # Registration
-GET         /register                   controllers.Registration.newReg
-POST        /register                   controllers.Registration.create
-# POST        /register/:id/delete        controllers.Registration.delete(id: Long)
-# GET         /people                   controllers.Registration.index
-# GET         /person/:id               controllers.Registration.show(id: Long)
+GET         /register                 controllers.Registration.newReg
+POST        /register                 controllers.Registration.create
+POST        /register/:id/delete      controllers.Registration.delete(id: Long)
+GET         /people                   controllers.Registration.index
+GET         /person/:id               controllers.Registration.show(id: Long)
 
 
 

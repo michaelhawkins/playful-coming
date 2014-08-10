@@ -35,10 +35,11 @@ object Registration extends Controller {
   )
 
 
-  def index = Action {
-//    Ok(views.html.listSignup(Person.all(), personForm))
+  def index = TODO
+    /*Action {
+    Ok(views.html.listSignup(Person.all(), personForm))
     Ok("List of people who have signed up for admins")
-  }
+  }*/
 
   def newReg = Action {
     Ok(views.html.registration.newReg(newPersonForm))
@@ -58,19 +59,16 @@ object Registration extends Controller {
     )
   }
 
-  def delete(id: Long) = Action {
+  def delete(id: Long) = TODO
+  /*Action {
     Person.delete(id)
     Redirect(routes.Registration.index)
-  }
+  }*/
 
-  def show(id: Long) = Action {
+  def show(id: Long) = TODO
+  /*Action {
     val x =  Person.find(id)
     Ok(views.html.registration.registerSuccess(x.id, x.firstName, x.lastName, x.email, x.zipCode))
-  }
-
-  /*def signupSuccess = Action {
-//    Ok(views.html.signupSuccess(person))
-    Ok()
   }*/
 
 }
