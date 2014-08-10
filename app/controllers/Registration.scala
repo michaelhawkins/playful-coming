@@ -48,12 +48,10 @@ object Registration extends Controller {
     newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.registration.newReg(errors)),
       person => {
-        //Ok(person.firstName)
         val newPerson = NewPerson.create(person.firstName, person.lastName,
           person.email, person.zipCode)
         Ok(views.html.registration.registerSuccess(newPerson.id,
           newPerson.firstName, newPerson.lastName, newPerson.email, newPerson.zipCode))
-//        Redirect(routes.Registration.signupSuccess(newPerson))
       }
     )
   }
