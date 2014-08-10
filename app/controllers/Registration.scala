@@ -38,7 +38,6 @@ object Registration extends Controller {
   def index = TODO
     /*Action {
     Ok(views.html.listSignup(Person.all(), personForm))
-    Ok("List of people who have signed up for admins")
   }*/
 
   def newReg = Action {

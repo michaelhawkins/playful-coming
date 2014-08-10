@@ -12,7 +12,7 @@
             <ul class="list-unstyled">
             @people.map { person =>
                 <li class>
-                    @person.email
+                    @person.email: @person.lastName, @person.firstName
                     @helper.form(routes.Registration.delete(person.id)) {
                         <input type="submit" value="Delete" class="btn btn-primary">
                     }

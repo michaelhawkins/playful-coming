@@ -7,12 +7,6 @@ import play.api.Play.current
 import play.api.libs.ws._
 import play.api.Play.current
 
-//Use trait eventually. See https://stackoverflow.com/questions/13199198/using-auto-incrementing-fields-with-postgresql-and-slick
-trait PersonT {
-  def firstName: String
-  def lastName: String
-}
-
 case class NewPerson(firstName: String, lastName: String, email: String, zipCode: String)
 case class Person(id: Long, firstName: String, lastName: String, email: String, zipCode:String)
 
@@ -49,7 +43,7 @@ object Person {
   }
 
   def all(): List[Person] = DB.withConnection { implicit c =>
-    SQL("SELECT * FROM person").as(person *)
+    SQL("SELECT * FROM person").as(Person.person *)
   }
 
   def delete(id: Long) {
