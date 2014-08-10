@@ -18,12 +18,6 @@ case class Person(id: Long, firstName: String, lastName: String, email: String, 
 
 object NewPerson {
 
-/*val newPerson = {
-    get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") ~ get[String]("zipCode") map {
-      case firstName~lastName~email~zipCode => NewPerson(firstName, lastName, email, zipCode)
-    }
-  }*/
-
   def create(firstName: String, lastName: String, email: String, zipCode: String): Person = {
     DB.withConnection { implicit c =>
       val id: Long = SQL("INSERT INTO person(firstname, lastname, email, zipcode) VALUES({firstname}, {lastname}, " +
