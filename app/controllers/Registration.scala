@@ -10,6 +10,7 @@ import com.sun.xml.internal.bind.v2.TODO
 import models._
 import play.api.data._
 import play.api.data.Forms._
+import anorm._
 
 object Registration extends Controller {
 
@@ -48,7 +49,7 @@ object Registration extends Controller {
     newPersonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.registration.newReg(errors)),
       person => {
-        val newPerson = NewPerson.create(person.firstName, person.lastName,
+        val newPerson = Person.create(person.firstName, person.lastName,
           person.email, person.zipCode)
         Ok(views.html.registration.registerSuccess(newPerson.id,
           newPerson.firstName, newPerson.lastName, newPerson.email, newPerson.zipCode))
