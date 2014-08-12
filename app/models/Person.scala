@@ -36,12 +36,6 @@ object Person {
     }
   }
 
-  val person = {
-    get[Long]("id") ~ get[String]("firstName") ~ get[String]("lastName") ~ get[String]("email") ~ get[String]("zipcode") map {
-      case id~firstName~lastName~email~zipCode => Person(id, firstName, lastName, email, zipCode)
-    }
-  }
-
   def all(): List[Person] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM person").as(Person.person *)
   }
