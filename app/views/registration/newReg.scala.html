@@ -32,12 +32,12 @@
 
                         @inputText(
                             newPersonForm("lastName"), '_label -> Messages("person.lastname"),
-                                'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError,
-                                'showConstraints -> false
+                                'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError
                         )
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
-                                'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError
+                                'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError,
+                                'showConstraints -> false
                         )
 
                         @inputText(
