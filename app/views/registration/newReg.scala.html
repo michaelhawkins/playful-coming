@@ -26,22 +26,30 @@
 
                         @inputText(
                             newPersonForm("firstName"), '_label -> Messages("person.firstname"),
-                                'help -> Messages("person.enterfirstname")
+                                '_help -> Messages("person.enterfirstname"), '_showConstraints -> true,
+                                _showErrors -> true, '_placeholder -> Message("person.enterfirstname"),
+                                '_error -> newPersonForm.globalError
                         )
 
                         @inputText(
-                            newPersonForm("lastName"), '_label -> Messages("person.lastname"),
-                                'help -> Messages("person.enterlastname")
+                            newPersonForm("lastName"),
+                                '_showConstraints -> true, '_label -> Messages("person.lastname"),
+                                '_help -> Messages("person.enterfirstname"), '_showConstraints -> true'
+                                _showErrors -> true, '_placeholder -> Message("person.enterlastname"),
+                                '_error -> newPersonForm.globalError
                         )
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
-                                '_help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError,
-                                '_showConstraints -> false, '_placeHolder -> Messages("email.enteremail")
+                                '_help -> Messages("email.enteremail"), '_showConstraints -> true,
+                                _showErrors -> true, '_placeholder -> Messages("email.enteremail")
+                                '_error -> newPersonForm.globalError
                         )
 
                         @inputText(
                             newPersonForm("zipCode"), '_label -> Messages("address.zipcode"),
-                                'help -> Messages("address.enterzipcode"), '_showErrors -> false
+                                '_help -> Messages("address.enterzipcode"), '_showConstraints -> true,
+                                _showErrors -> true, '_help -> Messages("address.enterzipcode")
+                                '_error -> newPersonForm.globalError
                         )
 
 
