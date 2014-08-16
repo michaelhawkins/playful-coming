@@ -36,12 +36,12 @@
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
                                 '_help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError,
-                                '_showConstraints -> false
+                                '_showConstraints -> false, '_placeHolder -> Messages("email.enteremail")
                         )
 
                         @inputText(
                             newPersonForm("zipCode"), '_label -> Messages("address.zipcode"),
-                                'help -> Messages("address.enterzipcode")
+                                'help -> Messages("address.enterzipcode"), '_showErrors -> false
                         )
 
 
