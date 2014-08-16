@@ -26,18 +26,17 @@
 
                         @inputText(
                             newPersonForm("firstName"), '_label -> Messages("person.firstname"),
-                                'help -> Messages("person.enterfirstname"), 'error -> newPersonForm.globalError,
-                                'showConstraints -> true
+                                'help -> Messages("person.enterfirstname")
                         )
 
                         @inputText(
                             newPersonForm("lastName"), '_label -> Messages("person.lastname"),
-                                'help -> Messages("person.enterlastname"), 'error -> newPersonForm.globalError
+                                'help -> Messages("person.enterlastname")
                         )
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
-                                'help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError,
-                                'showConstraints -> false
+                                '_help -> Messages("email.enteremail"), 'error -> newPersonForm.globalError,
+                                '_showConstraints -> false
                         )
 
                         @inputText(
