@@ -26,28 +26,26 @@
 
                         @inputText(
                             newPersonForm("firstName"), '_label -> Messages("person.firstname"),
-                                '_help -> Messages("person.enterfirstname"),
-                                '_showErrors -> true, 'placeholder -> Messages("person.enterfirstname")
+                                'placeholder -> Messages("person.enterfirstname"), '_showErrors -> true,
+                                '_showConstraints -> true
                         )
 
                         @inputText(
-                            newPersonForm("lastName"),
-                                '_showConstraints -> true, '_label -> Messages("person.lastname"),
-                                '_help -> Messages("person.enterfirstname"),
-                                '_showErrors -> true, 'placeholder -> Messages("person.enterlastname")
+                            newPersonForm("lastName"), '_label -> Messages("person.lastname"),
+                            'placeholder -> Messages("person.enterlastname"), '_showErrors -> true,
+                            '_showConstraints -> true
                         )
                         @inputText(
                             newPersonForm("email"), '_label -> Messages("email.email"),
-                                '_showConstraints -> true, '_showErrors -> true,
-                                'placeholder -> Messages("email.enteremail"),
-                                '_error -> newPersonForm.globalError
+                            'placeholder -> Messages("email.enteremail"), '_showErrors -> true,
+                            '_help -> Messages("email.enteremail")
+
                         )
 
                         @inputText(
                             newPersonForm("zipCode"), '_label -> Messages("address.zipcode"),
-                            '_showConstraints -> true, '_showErrors -> true,
-                            'placeholder -> Messages("address.enterzipcode")
-
+                            'placeholder -> Messages("address.enterzipcode"), '_showErrors -> true,
+                            '_help -> Messages("address.enteremail")
 
                         )
 
