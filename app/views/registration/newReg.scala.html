@@ -52,6 +52,14 @@
                                 '_error -> newPersonForm.globalError
                         )
 
+                        @if(newPersonForm.hasGlobalErrors) {
+                        <ul>
+                          @newPersonForm.globalErrors.foreach { error =>
+                              <li>error.message</li>
+                          }
+                        </ul>
+}
+
 
                     </fieldset>
 
